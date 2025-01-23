@@ -1,12 +1,23 @@
+import { RegisterLink, LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Link from "next/link"
 
-const Header = () => {
+const Header = async () => {
+    const { getUser } = getKindeServerSession()
+    const user = await getUser()
     const navItems = (
         <>
             <li><Link href="/">Home</Link></li>
             <li><Link href="/profile">Profile</Link></li>
-            <li><Link href="/login">Login</Link></li>
-            <li><Link href="/logout">Log Out</Link></li>
+            {
+                user ? <>
+                    <li><LogoutLink>Log Out</LogoutLink></li>
+                </> : <>
+                    <li><LoginLink>Login</LoginLink></li>
+                    <li><RegisterLink>Register</RegisterLink></li>
+                </>
+            }
         </>
     )
 
