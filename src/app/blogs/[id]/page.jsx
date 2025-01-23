@@ -1,4 +1,3 @@
-import getSingleData from "@/libs/getSingleData"
 import Link from "next/link"
 
 const Details = async ({ params }) => {

@@ -22,8 +22,8 @@ const Header = async () => {
     )
 
     return (
-        <div className="container mx-auto">
-            <div className="navbar bg-base-100">
+        <div className="bg-base-100 drop-shadow-md">
+            <div className="navbar container mx-auto py-6">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="lg:hidden">
